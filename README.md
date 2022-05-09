@@ -17,7 +17,8 @@ Project Includes:
 ->Spring Bootstrap;
 ->Import.sql;
 
-	Landing page/index welcomes users. The endpoints of "about us", "/contact" , "/register", "/login" and "/index" 
+Landing page/index welcomes users. The endpoints of "about us", "/contact" , "/register", "/login" and 
+"/index" 
 are accessible without registering. After registration, the user can access all the functionalities of the
 application, like : adding a new car, renting a car, updating an existing car, deleting a car. Once the user
 decides which car is for him, when he rents it, the quantity of cars is decremented. If the car quantity is 
