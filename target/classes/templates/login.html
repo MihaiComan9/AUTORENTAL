@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Login page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQnN" crossorigin="anonymous">
+
+</head>
+<style>
+body {
+    background-image :  url(https://i.pinimg.com/originals/0d/ad/35/0dad354108f017db7491c7151e03a5a3.jpg);
+    width:100%
+    height:auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/index">Auto Rental</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/about-us">About Us</a>
+            <a class="nav-item nav-link" href="/contact">Contact</a>
+            <a class="nav-item nav-link" href="/register">Register</a>
+            <a class="nav-item nav-link" href="/login">Login</a>
+
+        </div>
+    </div>
+</nav>
+
+<!--<body style="background-color:#FFF8DC;">-->
+<div class="alert alert-danger" role="alert">
+    <p th:if="${loginError}" class="error">Wrong user or password</p>
+</div>
+<br><br>
+
+<br>
+<div class="container p-3 my-3 bg-dark text-white" align="center">
+    <div align="center">
+        <h1>Member Access</h1>
+    </div>
+    <br>
+
+    <form th:action="@{/login}" method="post">
+
+        <div class="mx-auto">
+            <label class="control-label" for="username">Username</label>:
+            <input type="username" id="username" class="from-control" name="username" autofocus="autofocus"/></div>
+        <br/>
+        <div class="mx-auto">
+            <label class="control-label" for="password">Password</label>:
+            <input type="password" id="password" class="from-control" name="password"/></div>
+        <br/>
+        <!--        <div style="height:5px;">-->
+
+        <!--        </div>-->
+        <div class="form-group">
+            <button type="submit" class="btn btn-info btn-lg">Login</button>
+            <span><a th:href="@{/register}" class="btn btn-success btn-lg">Register</a> </span>
+        </div>
+
+    </form>
+    <footer class="text-center text-white fixed-bottom bg-dark">
+
+        <!-- Copyright -->
+        <div class="text-center text-white p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+            <i> © 2022 Auto Rental - autorentalgroup@gmail.com</i>
+        </div>
+        <!-- Copyright -->
+    </footer>
+</div>
+</body>
+</html>
+
+

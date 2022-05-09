@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<style>
+body {
+    background-image :  url(https://i.pinimg.com/originals/0d/ad/35/0dad354108f017db7491c7151e03a5a3.jpg);
+    width:100%
+    height:auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/index">Auto Rental</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/car/save">Add car</a>
+            <a class="nav-item nav-link" href="/about-us">About Us</a>
+            <a class="nav-item nav-link" href="/contact">Contact</a>
+
+        </div>
+    </div>
+    <a href="/logout" class="btn btn-danger btn-sm"> Logout</a>
+</nav>
+<br><br><br>
+
+
+
+
+<div class="container p-3 my-3 bg-dark text-white">
+    <form class="form-inline">
+        <input class="form-control mr-sm-1" type="search" placeholder="Search vehicle..." aria-label="Search">
+        <button class="btn  my-2 my-sm-2" type="submit">Search</button>
+    </form>
+
+    <table class="table">
+
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <!--            <th scope="col">Type</th>-->
+            <th scope="col">No. of doors</th>
+            <th scope="col">Color</th>
+            <th scope="col">Cars Available</th>
+            <th scope="col">Testdrive</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.id}"></td>
+            <td th:text="${car.carName}"></td>
+            <!--            <td th:text="${car.types}"></td>-->
+            <td th:text="${car.nrOfDoors}"></td>
+            <td th:text="${car.color}"></td>
+            <td th:text="${car.quantity}"></td>
+            <td>
+                <a th:href="@{'/car/rent/' + ${car.id}}">
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="tooltip"
+                            data-html="true"
+                            data-placement="top"
+                            th:attr="title=Rent +'&nbsp;'+'&quot;'+${car.carName}+'&quot;'"
+                            th:disabled="${car.quantity eq 0}">
+                        Drive
+                    </button>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{'/car/update/' + ${car.id}}" class="btn btn-warning btn-sm" data-toggle="tooltip"
+                   th:attr="title=Update +'&nbsp;'+'&quot;'+${car.carName}+'&quot;'">Update</a>
+            </td>
+            <td>
+                <a th:href="@{'/car/delete/' + ${car.id}}" class="btn btn-danger btn-sm" data-toggle="tooltip"
+                   th:attr="title=Delete +'&nbsp;'+'&quot;'+${car.carName}+'&quot;'">Delete</a>
+            </td>
+        </tbody>
+    </table>
+</div>
+
+<footer class="text-center text-white fixed-bottom bg-dark">
+    <!-- Copyright -->
+    <div class="text-center text-white p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+        <i> © 2022 Auto Rental - autorentalgroup@gmail.com</i>
+    </div>
+    <!-- Copyright -->
+</footer>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Register Succes</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <style>
+    body {
+    background-image :  url(https://i.pinimg.com/originals/0d/ad/35/0dad354108f017db7491c7151e03a5a3.jpg);
+    width:100%
+    height:auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+        p {
+            font-size: 30px;
+          }
+           body{
+            padding-top: 20vh;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container p-3 my-3 bg-dark text-white" align="center">
+<span>
+<p> Registration done!</p>
+    <b>
+        <a href="https://login.yahoo.com/" target="_blank"> <p th:text="${user.email}"></p> </a>
+    </b>
+</span>
+    <a href="/login" class="btn btn-info btn-lg"> Login</a>
+
+</div>
+</body>
+<footer class="text-center text-white fixed-bottom bg-dark">
+
+    <!-- Copyright -->
+    <div class="text-center text-white p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+        <i> © 2022 Auto Rental - autorentalgroup@gmail.com</i>
+    </div>
+    <!-- Copyright -->
+</footer>
+</html>
